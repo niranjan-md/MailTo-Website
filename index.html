@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MailTo Generator | by NiMD</title>
+    <meta property="og:title" content="MailTo Generator | by NiMD">
+    <meta property="og:description" content="Fully functional, beautiful MailTo link/QR code generator completelly ad free. ">
+    <meta property="og:image" content="https://mailto.nimd.me/assets/meta.png">
+    <meta property="og:url" content="https://mailto.nimd.me">
+    <meta name="keywords" content="mailto link generator, email link generator, mailto, email link, email mailto">
+    <meta name="author" content="NiMD">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+  <link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+  <div class="copy-feedback" id="copyFeedback">Link copied to clipboard!</div>
+  
+  <header>
+    <div class="particles"></div>
+    <div style="position: relative; z-index: 1;">
+      <h1 class="logo">Awesome MailTo Generator</h1>
+      <p class="tagline">Create email link and QR code with custom subject, body, CC, and BCC</p>
+    </div>
+  </header>
+
+  <div class="container">
+    <div class="form-container">
+      <form id="mailtoForm">
+        <div class="form-group">
+          <label for="emailTo">
+            To Email(s)
+            <div class="tooltip">ℹ️
+              <span class="tooltiptext">For multiple recipients, separate email addresses with commas</span>
+            </div>
+          </label>
+          <input type="text" id="emailTo" placeholder="john@email.com, bob@email.com" required>
+        </div>
+
+        <div class="form-group">
+          <label for="cc">
+            CC
+            <div class="tooltip">ℹ️
+              <span class="tooltiptext">Recipients who receive a copy of the email. Leave empty for none</span>
+            </div>
+          </label>
+          <input type="text" id="cc" placeholder="lois@email.com, peter@email.com">
+        </div>
+
+        <div class="form-group">
+          <label for="bcc">
+            BCC
+            <div class="tooltip">ℹ️
+              <span class="tooltiptext">Recipients who receive a copy without others knowing. Leave empty for none</span>
+            </div>
+          </label>
+          <input type="text" id="bcc" placeholder="meg@email.com, brian@email.com">
+        </div>
+
+        <div class="form-group">
+          <label for="subject">Email Subject</label>
+          <input type="text" id="subject" placeholder="Your subject here">
+        </div>
+
+        <div class="form-group">
+          <label for="body">Email Body</label>
+          <textarea id="body" placeholder="Type your email content here..."></textarea>
+        </div>
+
+        <div class="buttons">
+          <button type="submit" class="btn btn-primary" id="generateBtn">
+            Generate Link
+            <span class="loading" id="generateLoading"></span>
+          </button>
+          <button type="button" class="btn btn-secondary" id="resetBtn">Reset Form</button>
+        </div>
+      </form>
+    </div>
+
+    <div class="result-container" id="resultContainer">
+      <h2>Your MailTo Link:</h2>
+      <div class="result-link" id="resultLink"></div>
+      <div class="buttons">
+        <button class="btn btn-primary" id="copyBtn">Copy Link</button>
+        <button class="btn btn-success" id="testBtn">Test Link</button>
+          <button type="button" class="btn btn-success" id="qrBtn" style="display: none;">
+            Generate QR Code
+            <span class="loading" id="qrLoading"></span>
+          </button>
+      </div>
+      <div class="qr-container" id="qrContainer" style="display: none;">
+        <div id="qrcode"></div>
+        <button class="qr-download-btn" id="downloadQrBtn">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+            <polyline points="7 10 12 15 17 10"></polyline>
+            <line x1="12" y1="15" x2="12" y2="3"></line>
+          </svg>
+          Download QR Code
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <p class="credit">Crafted with ❤️ by <a href="https://nimd.me" target="_bank"><span>NiMD</span></a></p>
+    <p>Create custom mailto links easily with full functionality</p>
+  </footer>
+
+  <script src="assets/script.js"></script>
+</body>
+</html>
