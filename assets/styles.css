@@ -25,18 +25,14 @@
     }
 
     header {
-      background: linear-gradient(135deg, #DDDFF1, #F2E1F8);
+      background: linear-gradient(135deg, var(--primary), #7209b7);
       padding: 2rem;
       color: white;
       text-align: center;
       position: relative;
       overflow: hidden;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 50vw;
-      border-bottom-left-radius: 60px;
-      border-bottom-right-radius: 60px;
-      box-shadow: 0 0 0 1px #7286E9;
+      border-bottom-left-radius: 20px;
+      border-bottom-right-radius: 20px;
     }
 
     .logo {
