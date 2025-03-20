@@ -88,7 +88,7 @@
         
         // Set the href and download attributes
         link.href = dataURL;
-        link.download = 'mailto-qrcode.png';
+        link.download = 'mailto-nimd-me.png';
         
         // Append to the body, click programmatically, and remove
         document.body.appendChild(link);
