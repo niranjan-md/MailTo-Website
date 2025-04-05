@@ -66,7 +66,7 @@
     }
   
     .image-container img {
-      max-width: 40%; /* Adjust as needed */
+      max-width: 40%; 
     }
 
     .container {
@@ -308,7 +308,7 @@
       }
     }
 
-    /* Responsive design */
+
     @media (max-width: 768px) {
       .container {
         padding: 1rem;
@@ -331,7 +331,7 @@
       }
     }
 
-    /* Tooltip styles - fixed to prevent clipping */
+    /* prevent clipping fix. It works. lol */
     .tooltip {
       position: relative;
       display: inline-block;
@@ -363,7 +363,7 @@
       opacity: 1;
     }
 
-    /* Loading animation */
+    /* Loading animation buggy */
     .loading {
       display: inline-block;
       width: 20px;
