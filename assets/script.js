@@ -23,16 +23,23 @@
       const to = document.getElementById('emailTo').value.trim();
       const subject = encodeURIComponent(document.getElementById('subject').value.trim());
       const body = encodeURIComponent(document.getElementById('body').value.trim());
-      const cc = encodeURIComponent(document.getElementById('cc').value.trim());
-      const bcc = encodeURIComponent(document.getElementById('bcc').value.trim());
+      const cc = document.getElementById('cc').value
+        .split(',')
+        .map(email => email.trim())
+        .join(',');
+      const bcc = document.getElementById('bcc').value
+        .split(',')
+        .map(email => email.trim())
+        .join(',');
+
       
       let mailtoLink = `mailto:${to}`;
       let params = [];
       
       if (subject) params.push(`subject=${subject}`);
       if (body) params.push(`body=${body}`);
-      if (cc) params.push(`cc=${cc}`);
-      if (bcc) params.push(`bcc=${bcc}`);
+      if (cc) params.push(`cc=${encodeURIComponent(cc)}`);
+      if (bcc) params.push(`bcc=${encodeURIComponent(bcc)}`);
       
       if (params.length > 0) {
         mailtoLink += '?' + params.join('&');
