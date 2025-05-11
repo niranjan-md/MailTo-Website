@@ -3,14 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>MailTo Generator | by NiMD</title>
-    <meta name="description" content="Generate fully functional MailTo links and QR codes effortlessly with support for CC, BCC, subject, and body fields. Perfect for email campaigns, contact forms, and quick sharing. Completely ad-free, simple to use, and designed for efficiency.">
+    
+    <title>MailTo Link Generator | by NiMD</title>
+    <meta name="description" content="Generate fully functional MailTo email links and QR codes effortlessly with support for CC, BCC, subject, and body fields. Perfect for email campaigns, contact forms, and quick sharing. Completely ad-free, simple to use, and designed for efficiency.">
     <meta name="author" content="NiMD">
     <meta name="robots" content="index, follow">
     <meta name="language" content="en">
     <meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)">
     <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+    <meta name="keywords" content="email generator, mailto link, email QR code, mailto QR code, email link creator">
     
     <!-- Open Graph / Facebook Meta Tags -->
     <meta property="og:title" content="MailTo Generator | by NiMD">
@@ -29,114 +30,183 @@
     <meta name="twitter:image" content="https://mailto.nimd.me/assets/meta.png">
     
     <!-- Favicon and App Icons -->
-    <link rel="icon" type="image/png" sizes="32x32" href="assets/fav.png">
-    <meta name="apple-mobile-web-app-title" content="Niranjan MD">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://mailto.nimd.me/assets/fav.png">
+    <meta name="apple-mobile-web-app-title" content="MailTo Generator | by NiMD">
     <meta name="application-name" content="MailTo Generator | by NiMD">
     
     <!-- Canonical URL -->
     <link rel="canonical" href="https://mailto.nimd.me">
-  
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
-  <link rel="stylesheet" href="assets/styles.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+    <link rel="stylesheet" href="assets/styles.css">
+
 </head>
 <body>
-  <div class="copy-feedback" id="copyFeedback">Link copied to clipboard!</div>
-  
-  <header>
-        <div class="particles"></div>
-    <div style="position: relative; z-index: 1;">
-      <h1 class="logo">MailTo Generator</h1>
-      <p class="tagline">Create email link and QR code with custom subject, body, CC, and BCC</p>
-    </div>
-  </header>
+    <header>
+        <h1>EmailTo Link Generator</h1>
+        <p>Create beautiful custom email links and QR codes in seconds</p>
+    </header>
 
-  <div class="container">
-    <div class="form-container">
-      <form id="mailtoForm">
-        <div class="form-group">
-          <label for="emailTo">
-            To Email(s)
-            <div class="tooltip">ℹ️
-              <span class="tooltiptext">For multiple recipients, separate email addresses with commas</span>
+    <main>
+        <div class="container">
+            <div class="card">
+                <div class="tabs">
+                    <div class="tab active" data-tab="basic">Basic</div>
+                    <div class="tab" data-tab="advanced">Advanced</div>
+                    <div class="tab" data-tab="templates">Templates</div>
+                </div>
+
+                <div id="basicTab" class="tab-content active">
+                    <h2><span class="icon">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-mail-plus-icon lucide-mail-plus"><path d="M22 13V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v12c0 1.1.9 2 2 2h8"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/><path d="M19 16v6"/><path d="M16 19h6"/></svg>
+                    </span> Create Email Link</h2>
+                    <div class="form-section">
+                        <div class="form-group">
+                            <label for="to">To <span class="tooltip" data-tooltip="Required - Recipient email address">🛈</span></label>
+                            <input type="email" id="to" placeholder="recipient@example.com" autocomplete="off">
+                            <div class="help-text">Main recipient's email address</div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="subject">Subject <span class="tooltip" data-tooltip="Email subject line">🛈</span></label>
+                            <input type="text" id="subject" placeholder="Enter email subject" autocomplete="off">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="body">Body <span class="tooltip" data-tooltip="Main email content">🛈</span></label>
+                            <textarea id="body" placeholder="Write your email content here..."></textarea>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="advancedTab" class="tab-content">
+                    <h2><span class="icon">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-settings-icon lucide-settings"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"/><circle cx="12" cy="12" r="3"/></svg>
+                    </span> Advanced Options</h2>
+                    <div class="form-section">
+                        <div class="form-group">
+                            <label for="cc">CC <span class="tooltip" data-tooltip="Carbon Copy - Recipients can see all other CC recipients">🛈</span></label>
+                            <input type="text" id="cc" placeholder="cc1@example.com, cc2@example.com" autocomplete="off">
+                            <div class="help-text">Separate multiple addresses with commas</div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="bcc">BCC <span class="tooltip" data-tooltip="Blind Carbon Copy - Recipients cannot see other BCC recipients">🛈</span></label>
+                            <input type="text" id="bcc" placeholder="bcc1@example.com, bcc2@example.com" autocomplete="off">
+                            <div class="help-text">Separate multiple addresses with commas</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="templatesTab" class="tab-content">
+                    <h2><span class="icon">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-layout-panel-top-icon lucide-layout-panel-top"><rect width="18" height="7" x="3" y="3" rx="1"/><rect width="7" height="7" x="3" y="14" rx="1"/><rect width="7" height="7" x="14" y="14" rx="1"/></svg>
+                    </span> Quick Templates</h2>
+                    <div class="form-section">
+                        <p>Click a template to quickly fill the form:</p>
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 1rem;">
+                            <button class="button button-secondary template-btn" data-template="meeting">Meeting Request</button>
+                            <button class="button button-secondary template-btn" data-template="feedback">Feedback Request</button>
+                            <button class="button button-secondary template-btn" data-template="introduction">Introduction</button>
+                            <button class="button button-secondary template-btn" data-template="followup">Follow-up</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="actions">
+                    <button id="generateBtn" class="button button-primary">
+                        <span>Generate Link</span>
+                    </button>
+                    <button id="clearBtn" class="button button-secondary">
+                        Clear All
+                    </button>
+                </div>
+
+                <div class="result-section">
+                    <div id="linkResult" class="result-box">
+                        <button class="copy-btn" id="copyLinkBtn">Copy</button>
+                        <span id="mailtoLink"></span>
+                    </div>
+
+                    <a href="#" id="previewLink" target="_blank" style="display: none;">
+                        <span class="icon">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-send-horizontal-icon lucide-send-horizontal"><path d="M3.714 3.048a.498.498 0 0 0-.683.627l2.843 7.627a2 2 0 0 1 0 1.396l-2.842 7.627a.498.498 0 0 0 .682.627l18-8.5a.5.5 0 0 0 0-.904z"/><path d="M6 12h16"/></svg>
+                        </span> Test Email Link
+                    </a>
+                </div>
             </div>
-          </label>
-          <input type="text" id="emailTo" placeholder="john@email.com, bob@email.com" required>
-        </div>
 
-        <div class="form-group">
-          <label for="cc">
-            CC
-            <div class="tooltip">ℹ️
-              <span class="tooltiptext">Recipients who receive a copy of the email. Leave empty for none</span>
+            <div class="card">
+                <h2><span class="icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-qr-code-icon lucide-qr-code"><rect width="5" height="5" x="3" y="3" rx="1"/><rect width="5" height="5" x="16" y="3" rx="1"/><rect width="5" height="5" x="3" y="16" rx="1"/><path d="M21 16h-3a2 2 0 0 0-2 2v3"/><path d="M21 21v.01"/><path d="M12 7v3a2 2 0 0 1-2 2H7"/><path d="M3 12h.01"/><path d="M12 3h.01"/><path d="M12 16v.01"/><path d="M16 12h1"/><path d="M21 12v.01"/><path d="M12 21v-1"/></svg>
+                </span> QR Code Generator</h2>
+                <p>Generate a scannable QR code from your email link</p>
+
+                <div id="qrContainer">
+                    <div id="qrPlaceholder" style="width: 200px; height: 200px; display: flex; align-items: center; justify-content: center; background-color: var(--bg-color); border-radius: var(--radius);">
+                        <p style="color: var(--text-secondary); text-align: center;">Generate an email link first</p>
+                    </div>
+                    <div id="qrCode" style="display: none;"></div>
+                </div>
+
+                <div class="qr-warning" id="qrWarning">
+                    <strong>⚠️ Warning:</strong> Some QR scanners like Google Lens ignore CC and BCC fields from mailto QR codes. <a href="https://nimd.btw.so/limitation-of-mailto-link-qr-codes" target="_blank"><i>(Know More)</i></a>
+                </div>
+
+                <button id="downloadQrBtn" class="download-btn" style="display: none;">
+                    <span class="icon">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-download-icon lucide-download"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" x2="12" y1="15" y2="3"/></svg>
+                    </span> Download QR Code
+                </button>
             </div>
-          </label>
-          <input type="text" id="cc" placeholder="lois@email.com, peter@email.com">
         </div>
 
-        <div class="form-group">
-          <label for="bcc">
-            BCC
-            <div class="tooltip">ℹ️
-              <span class="tooltiptext">Recipients who receive a copy without others knowing. Leave empty for none</span>
+        <section>
+            <h2 style="margin-bottom: 1.5rem; text-align: center;">Why Use This Email Link Generator?</h2>
+            <div class="features">
+                <div class="feature-card">
+                    <div class="feature-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-link-icon lucide-link"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg></div>
+                    <h3>Custom Email Links</h3>
+                    <p>Create mailto links with pre-filled recipients, subject lines, CC, BCC and message bodies to streamline email communications.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-qr-code-icon lucide-qr-code"><rect width="5" height="5" x="3" y="3" rx="1"/><rect width="5" height="5" x="16" y="3" rx="1"/><rect width="5" height="5" x="3" y="16" rx="1"/><path d="M21 16h-3a2 2 0 0 0-2 2v3"/><path d="M21 21v.01"/><path d="M12 7v3a2 2 0 0 1-2 2H7"/><path d="M3 12h.01"/><path d="M12 3h.01"/><path d="M12 16v.01"/><path d="M16 12h1"/><path d="M21 12v.01"/><path d="M12 21v-1"/></svg></div>
+                    <h3>QR Code Generation</h3>
+                    <p>Convert your email links into scannable QR codes perfect for print materials, business cards, and even for tattoos if you want.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-globe-lock-icon lucide-globe-lock"><path d="M15.686 15A14.5 14.5 0 0 1 12 22a14.5 14.5 0 0 1 0-20 10 10 0 1 0 9.542 13"/><path d="M2 12h8.5"/><path d="M20 6V4a2 2 0 1 0-4 0v2"/><rect width="8" height="5" x="14" y="6" rx="1"/></svg></div>
+                    <h3>Privacy Focused</h3>
+                    <p>All processing happens in your browser - no data is stored on any servers.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-layout-template-icon lucide-layout-template"><rect width="18" height="7" x="3" y="3" rx="1"/><rect width="9" height="7" x="3" y="14" rx="1"/><rect width="5" height="7" x="16" y="14" rx="1"/></svg></div>
+                    <h3>Ready-made Templates</h3>
+                    <p>Jump-start your emails with limited collection of professional templates for common scenarios, just to get started.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-sun-moon-icon lucide-sun-moon"><path d="M12 8a2.83 2.83 0 0 0 4 4 4 4 0 1 1-4-4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.9 4.9 1.4 1.4"/><path d="m17.7 17.7 1.4 1.4"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.3 17.7-1.4 1.4"/><path d="m19.1 4.9-1.4 1.4"/></svg></div>
+                    <h3>Dark/Light Modes</h3>
+                    <p>Even though it is completely unnecessary and pointless in such a short-stop website, we've got you covered.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-hand-heart-icon lucide-hand-heart"><path d="M11 14h2a2 2 0 1 0 0-4h-3c-.6 0-1.1.2-1.4.6L3 16"/><path d="m7 20 1.6-1.4c.3-.4.8-.6 1.4-.6h4c1.1 0 2.1-.4 2.8-1.2l4.6-4.4a2 2 0 0 0-2.75-2.91l-4.2 3.9"/><path d="m2 15 6 6"/><path d="M19.5 8.5c.7-.7 1.5-1.6 1.5-2.7A2.73 2.73 0 0 0 16 4a2.78 2.78 0 0 0-5 1.8c0 1.2.8 2 1.5 2.8L16 12Z"/></svg></div>
+                    <h3>Pookie developer</h3>
+                    <p>This website is created and maintained by a student-developer who does this stuff for fun. Support me if you can please.</p>
+                </div>
             </div>
-          </label>
-          <input type="text" id="bcc" placeholder="meg@email.com, brian@email.com">
-        </div>
+        </section>
+    </main>
 
-        <div class="form-group">
-          <label for="subject">Email Subject</label>
-          <input type="text" id="subject" placeholder="Your subject here">
-        </div>
+    <footer>
+        <p>Made with ❤️ by <a href="https://nimd.me" target="_blank">NiMD</a></p>
+        <p style="margin-top: 0.5rem; font-size: 0.9rem; opacity: 0.8;">© 2025 mailtolink.org. All rights reserved.</p>
+    </footer>
 
-        <div class="form-group">
-          <label for="body">Email Body</label>
-          <textarea id="body" placeholder="Type your email content here..."></textarea>
-        </div>
-
-        <div class="buttons">
-          <button type="submit" class="btn btn-primary" id="generateBtn">
-            Generate Link
-            <span class="loading" id="generateLoading"></span>
-          </button>
-          <button type="button" class="btn btn-secondary" id="resetBtn">Reset Form</button>
-        </div>
-      </form>
+    <div class="notification" id="notification">
+        <span id="notificationText">Copied to clipboard!</span>
     </div>
+    <script src="assets/script.js"></script>
 
-    <div class="result-container" id="resultContainer">
-      <h2>Your MailTo Link:</h2>
-      <div class="result-link" id="resultLink"></div>
-      <div class="buttons">
-        <button class="btn btn-primary" id="copyBtn">Copy Link</button>
-        <button class="btn btn-success" id="testBtn">Test Link</button>
-          <button type="button" class="btn btn-success" id="qrBtn" style="display: none;">
-            Generate QR Code
-            <span class="loading" id="qrLoading"></span>
-          </button>
-      </div>
-      <div class="qr-container" id="qrContainer" style="display: none;">
-        <div id="qrcode"></div>
-        <button class="qr-download-btn" id="downloadQrBtn">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-            <polyline points="7 10 12 15 17 10"></polyline>
-            <line x1="12" y1="15" x2="12" y2="3"></line>
-          </svg>
-          Download QR Code
-        </button>
-        <p style="margin-top: 1rem; text-align: center; color: #555;"><i>
-          Some QR scanners like Google Lens ignore CC and BCC fields from mailto QR codes.<br><a href="https://nimd.btw.so/limitation-of-mailto-link-qr-codes" target="_blank">(Know More)</a></i>
-</p>
-
-      </div>
-    </div>
-  </div>
-
-  <footer>
-    <p class="credit">Crafted with ❤️ by <a href="https://nimd.me" target="_bank"><span>NiMD</span></a></p>
-    <p>Create custom mailto links easily with full functionality</p>
-  </footer>
-
-  <script src="assets/script.js"></script>
 </body>
 </html>
